@@ -1,0 +1,89 @@
+<AMTASK>
+<AMTASKHEAD>
+    <TASKINFO TASKVERSION="10.6.0.3" />
+</AMTASKHEAD>
+
+<AMFUNCTION NAME="Main" ACCESS="private">
+<AMVARIABLE NAME="asd" VALUE="" />
+<AMVARIABLE NAME="asd1" VALUE="1" />
+<AMVARIABLE NAME="asd2" VALUE="" />
+<AMVARIABLE NAME="asd4" VALUE="" />
+<!--
+<AMBROWSER URL="https://www.linkedin.com/search/results/content/?keywords=%%23VincixGroup&amp;origin=HASH_TAG_FROM_FEED" SESSION="BrowserSession1" />
+   --><AMWAIT SCALAR="10" />
+<AMBROWSER ACTIVITY="attach" SESSION="BrowserSession1" MATCHWINDOWURL="https://www.linkedin.com/*" />
+<AMWINDOW WINDOWTITLE="*LinkedIn - Internet Explorer" />
+<AMWINDOW ACTIVITY="maximize" WINDOWTITLE="* LinkedIn - Internet Explorer" />
+<AMBROWSER ACTIVITY="click" HTMLTAG="SPAN" SESSION="BrowserSession1"><HTMLATTRIBUTE NAME="className" VALUE="Sans-13px-black-85%%-semibold" /></AMBROWSER>
+<AMWAIT SCALAR="2" />
+<AMBROWSER ACTIVITY="click" HTMLTAG="BUTTON" SESSION="BrowserSession1"><HTMLATTRIBUTE NAME="type" VALUE="submit" /><HTMLATTRIBUTE NAME="className" VALUE="sort-dropdown__list-item-button Sans-13px-black-85%%-semibold " /></AMBROWSER>
+<AMWAIT SCALAR="2" />
+<AMLOOP FROM="1" TO="5">
+   <AMBROWSER ACTIVITY="state" SESSION="BrowserSession1" />
+   <AMWAIT SCALAR="2" />
+   <AMBROWSER ACTIVITY="click" HTMLTAG="DIV" USEMATCH="%asd1%" SESSION="BrowserSession1"><HTMLATTRIBUTE NAME="className" VALUE="ivm-view-attr__img--centered feed-shared-image__image ember-view" /></AMBROWSER>
+   <AMWAIT SCALAR="2" />
+   <AMINPUT ACTIVITY="move_mouse" X="959" Y="557" />
+   <AMWAIT SCALAR="1" />
+   <AMINPUT ACTIVITY="click_mouse" BUTTON="right" />
+   <AMINPUT KEYSTROKES="v" />
+   <AMWAIT ACTIVITY="window" WINDOWTITLE="Salva immagine" />
+   <AMWINDOW WINDOWTITLE="Salva immagine" />
+   <AMINPUT KEYSTROKES="{ENTER}" />
+   <AMWAIT SCALAR="1" />
+   <AMIF ACTIVITY="window_exists" WINDOWTITLE="Conferma Salva con nome">
+      <AMINTERACT ACTIVITY="press" WINDOWTITLE="Conferma Salva con nome" OBJECTPROPERTIES="Toolkit=WindowsAccessibility,Type=PushButton,Class=Button,Name=No,Value=,X=,Y=" />
+      <AMWAIT SCALAR="1" />
+      <AMINTERACT ACTIVITY="press" WINDOWTITLE="Salva immagine" OBJECTPROPERTIES="Toolkit=WindowsAccessibility,Type=PushButton,Class=Button,Name=Annulla,Value=,X=,Y=" />
+      <AMWAIT SCALAR="1" />
+      <AMINPUT ACTIVITY="move_mouse" X="1760" Y="243" />
+      <AMINPUT ACTIVITY="click_mouse" />
+      <AMVARIABLE ACTIVITY="increment" RESULTVARIABLE="asd1" />
+      <AMLABEL ACTIVITY="goto" LABELNAME="asdf" />
+   </AMIF>
+   <AMINPUT ACTIVITY="move_mouse" X="1760" Y="243" />
+   <AMINPUT ACTIVITY="click_mouse" />
+   <AMVARIABLE ACTIVITY="increment" RESULTVARIABLE="asd1" />
+   <AMLABEL LABELNAME="asdf" />
+</AMLOOP>
+</AMFUNCTION>
+
+<AMFUNCTION NAME="OnStepStart" ACCESS="private">
+<AMPARAMETER NAME="FunctionName" DESCRIPTION="The function that is starting the step" SUBTYPE="text" />
+<AMPARAMETER NAME="StepNumber" DESCRIPTION="The step number that is about to execute" SUBTYPE="number" />
+
+</AMFUNCTION>
+
+<AMFUNCTION NAME="OnStepEnd" ACCESS="private">
+<AMPARAMETER NAME="FunctionName" DESCRIPTION="The function that is ending the step" SUBTYPE="text" />
+<AMPARAMETER NAME="StepNumber" DESCRIPTION="The step number that is about to end" SUBTYPE="number" />
+
+</AMFUNCTION>
+
+<AMFUNCTION NAME="OnStepError" ACCESS="private">
+<AMPARAMETER NAME="FunctionName" DESCRIPTION="The function with the error" SUBTYPE="text" />
+<AMPARAMETER NAME="StepNumber" DESCRIPTION="The step number of the error" SUBTYPE="number" />
+<AMPARAMETER NAME="ErrorText" DESCRIPTION="The text of the error" SUBTYPE="text" />
+<AMPARAMETER NAME="ErrorCode" DESCRIPTION="The code of the error" SUBTYPE="number" />
+
+</AMFUNCTION>
+
+<AMFUNCTION NAME="OnTaskFailure" ACCESS="private">
+<AMPARAMETER NAME="FunctionName" DESCRIPTION="The function causing the task failure" SUBTYPE="text" />
+<AMPARAMETER NAME="StepNumber" DESCRIPTION="The step number causing the task failure" SUBTYPE="number" />
+<AMPARAMETER NAME="ErrorText" DESCRIPTION="The text of the error" SUBTYPE="text" />
+<AMPARAMETER NAME="ErrorCode" DESCRIPTION="The code of the error" SUBTYPE="number" />
+
+</AMFUNCTION>
+
+<AMFUNCTION NAME="OnTaskStart" ACCESS="private">
+<AMPARAMETER NAME="Reason" DESCRIPTION="The reason the task is starting" SUBTYPE="text" />
+
+</AMFUNCTION>
+
+<AMFUNCTION NAME="OnTaskEnd" ACCESS="private">
+<AMPARAMETER NAME="Reason" DESCRIPTION="The reason the task is ending" SUBTYPE="text" />
+
+</AMFUNCTION>
+
+</AMTASK>
